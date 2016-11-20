@@ -6,7 +6,7 @@ var ship : GameObject;
 
 function checkTouch(pos){
 	var wp : Vector3 = Camera.main.ScreenToWorldPoint(pos);
-	var touchPos : Vector2 = new Vector2(wp.x, wp. y);
+	var touchPos : Vector2 = new Vector2(wp.x, wp.y);
 	var hit = Physics2D.OverlapPoint(touchPos);
 		if(hit){
 		control = hit.transform.name;
@@ -29,9 +29,9 @@ function Update () {
 			checkTouch(Input.GetTouch(0).position);
 			}
 		}
-	} else if(platform == RuntimePlatform.WindowsEditor) {
-	if(Input.GetMouseButton(0)) {
-		checkTouch(Input.mousePosition);
+	} else {
+		if(Input.GetMouseButton(0)) {
+			checkTouch(Input.mousePosition);
 		}
 	}
 }
